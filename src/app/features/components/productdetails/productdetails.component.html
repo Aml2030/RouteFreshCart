@@ -1,0 +1,16 @@
+@if(product()._id) {
+<section  class="mt-12 mb-5 flex flex-col items-center bg-neutral-primary-soft    shadow-xs md:flex-row  md:flex-row  ">
+    <img class="object-cover md:w-3/4 rounded-base h-64 md:h-auto md:w-48 mb-4 md:mb-0" [src]="product().imageCover" [alt]="product().title">
+    <div class="flex flex-col justify-between md:p-4 leading-normal">
+        <h1 class="mb-2 text-2xl font-bold tracking-tight text-heading">{{product().title}}</h1>
+        <p class="mb-6 text-body">{{product().description}}</p>
+        <span class="mb-3 text-sm text-green-700">{{product().category.name}}</span>
+        <div class="flex justify-between items-center mb-3">
+          <span>{{ product().price | currency:'EGP':'symbol-narrow' }}</span>
+          <span><i class="fas fa-star text-yellow-300"></i>  {{product().ratingsAverage}}</span>
+        </div>
+        <button (click)="addProductToCart(product()._id)" class="rounded text-white w-full bg-green-700 py-1 cursor-pointer hover:font-bold"> + Add to Cart</button>
+    </div>
+  </section>
+
+}

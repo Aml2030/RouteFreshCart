@@ -1,0 +1,55 @@
+
+@if (resetCodeFlag) {
+<section class="w-3/4 mx-auto mt-12" >
+  <h1 class="text-green-700 text-xl font-medium my-3 mb-5">Reset Code 😍: </h1>
+
+    @if (errorMsg()) {
+      <div class="p-1 text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        <p>{{errorMsg()}}</p>
+
+      </div>}
+
+  <form [formGroup]="resetCodeForm" (ngSubmit)="submitResetCodeForm()" class="mt-4" >
+
+    <div class="relative z-0 w-full mb-5 group">
+        <input formControlName="resetCode" type="text" name="floating-resetCode" id="floating-resetCode" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-green-700 peer" placeholder=" " required />
+
+      @if(resetCodeForm.get('resetCode')?.errors &&  resetCodeForm.get('resetCode')?.touched){
+      <div class="text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        @if (resetCodeForm.get('resetCode')?.errors?.["required"]){
+          <p>resetCode is required!</p>
+        }
+        @else if(resetCodeForm.get('resetCode')?.errors?.["pattern"]  ){
+          <p>it has to be at least 4 digits and maximum 6 digits</p>
+        }
+
+      </div>
+      }
+
+        <label for="floating-resetCode" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-green-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">resetCode</label>
+
+        @if (resetCodeForm.get('resetCode')?.value?.includes(' ')) {
+        <div class="flex items-center text-amber-600 text-xs mt-1 animate-pulse">
+          <i class="fa-solid fa-circle-info me-1"></i>
+          <span>Heads up! We've noticed an extra space.</span>
+        </div>
+}
+    </div>
+
+
+
+      <button [disabled]="resetCodeForm.invalid" type="submit" [class.btn-main]="resetCodeForm.valid" [class.btn-disabled]="resetCodeForm.invalid" class="block ms-auto" >
+      @if(isLoading()){
+        <span> <i class="fa-solid fa-spinner fa-spin"></i> </span>
+      }@else{
+        <span>Send Code</span>
+      }
+    </button>
+
+  </form>
+</section>
+}
+@if(resetNewPasswordFlag){
+  <app-resetnewpassword></app-resetnewpassword>
+}
+

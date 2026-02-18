@@ -1,0 +1,13 @@
+@if(brands()){
+    <div class="group relative overflow-hidden bg-neutral-primary-soft block p-3 pb-6 border border-default rounded-base shadow-xs">
+
+      <img class="rounded-base w-full" [src]="brands().image" [alt]="brands().name" />
+
+      <div class="mt-4 mb-2">
+        <span class="text-xs text-green-700">{{brands().name}}</span>
+
+      </div>
+
+    </div>
+
+  }

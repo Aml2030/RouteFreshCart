@@ -1,0 +1,54 @@
+
+<section class="w-3/4 mx-auto" >
+  <h1 class="text-green-700 text-xl font-medium my-3">Login 🛒: </h1>
+
+  @if (errorMsg()) {
+      <div class="p-1 text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        <p>{{errorMsg()}}</p>
+
+      </div>}
+  <form [formGroup]="logInForm" (ngSubmit)="submitlogInForm()" class="mt-4" >
+
+    <div class="relative z-0 w-full mb-5 group">
+        <input formControlName="email" type="email" name="floating-email" id="floating-email" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-green-700 peer" placeholder=" " required />
+      @if(logInForm.get('email')?.errors &&  logInForm.get('email')?.touched){
+      <div class="text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        @if (logInForm.get('email')?.errors?.["required"]){
+          <p>email is required!</p>
+        }
+        @else if(logInForm.get('email')?.errors?.["email"]  ){
+          <p>it has to be email structure</p>
+        }
+
+      </div>
+      }
+        <label for="floating-email" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-green-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input formControlName="password" type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-green-700 peer" placeholder=" " required />
+        @if(logInForm.get('password')?.errors &&  logInForm.get('password')?.touched){
+      <div class="text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        @if (logInForm.get('password')?.errors?.["required"]){
+          <p>password is required!</p>
+        }
+        @else if(logInForm.get('password')?.errors?.["pattern"]){
+          <p>It has to start with a capital letter foloowed by @ and then at least 4 small char or numbers </p>
+        }
+      </div>
+      }
+        <label for="floating_password" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-green-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Password</label>
+    </div>
+
+
+    <div class=" flex justify-between items-center mb-5  ">
+      <a routerLink="/forgetpassword" tabindex="0" class=" text-blue-700 underline  transition-all duration-300 inline-block active:scale-95 active:font-bold hover:font-bold">
+        Forgot Password ? </a>
+      <button [disabled]="logInForm.invalid" type="submit" [class.btn-main]="logInForm.valid" [class.btn-disabled]="logInForm.invalid"  >
+      @if(isLoading()){
+        <span> <i class="fa-solid fa-spinner fa-spin"></i> </span>
+      }@else{
+        <span>logIn</span>
+      }
+      </button>
+    </div>
+  </form>

@@ -1,0 +1,88 @@
+<nav class="bg-gray-100 fixed w-full z-20 top-0 start-0 border-b border-default mb-2">
+  <div class="w-3/4 flex flex-wrap items-center justify-between mx-auto p-3">
+    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="images/freshcart-logo.svg" class="h-7" alt="freshcart logo">
+    </a>
+    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-sticky" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
+        </button>
+    </div>
+
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+      <ul class="flex   gap-x-3  flex-col items-center  mt-2 md:p-0 mt-4 md:gap-x-1 border border-default rounded-base  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
+        <li>
+          <a  routerLink="home"  routerLinkActive="text-green-700 font-bold" class="block py-2   rounded-sm hover:text-green-700   md:p-0 cursor-pointer" aria-current="page"  >{{"navbar.Home"|translate}}</a>
+        </li>
+
+        @if(isLogin()){
+          <li>
+            <a routerLink="cart"  routerLinkActive="text-green-700 font-bold" class="block py-2    rounded hover:text-green-700 md:border-0  md:p-0  cursor-pointer"  >{{"navbar.Cart"|translate}}</a>
+          </li>
+        }
+        <li>
+          <a routerLink="product"  routerLinkActive="text-green-700 font-bold" class="block py-2    rounded hover:text-green-700 md:border-0  md:p-0  cursor-pointer"  >{{"navbar.Product"|translate}}</a>
+        </li>
+        <li>
+          <a routerLink="categories"  routerLinkActive="text-green-700 font-bold" class="block py-2    rounded hover:text-green-700 md:border-0  md:p-0  cursor-pointer" >{{"navbar.Categories"|translate}}</a>
+        </li>
+        <li>
+          <a routerLink="brands"  routerLinkActive="text-green-700 font-bold" class="block py-2    rounded hover:text-green-700 md:border-0  md:p-0  cursor-pointer"  >{{"navbar.Brands"|translate}}</a>
+        </li>
+
+        <li class="flex items-center gap-x-3">
+          <a class="px-[1px] hover:text-green-700 md:border-0  md:p-0  cursor-pointer">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a class="px-[1px] hover:text-green-700 md:border-0  md:p-0  cursor-pointer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a class="px-[1px] hover:text-green-700 md:border-0  md:p-0  cursor-pointer">
+            <i class="fa-brands fa-snapchat"></i>
+          </a>
+
+          <button (click)="myTranslateService.changeLanguage('ar')"
+              class="px-[1px] hover:text-green-700 md:border-0 md:p-0 cursor-pointer"
+              [class.text-green-900]="myTranslateService.currentLang() == 'ar'"
+              [class.font-bold]="myTranslateService.currentLang() == 'ar'">
+              {{'navbar.AR'|translate}}
+          </button>
+
+          <button (click)="myTranslateService.changeLanguage('en')"
+              class="px-[1px] hover:text-green-700 md:border-0 md:p-0 cursor-pointer"
+              [class.text-green-900]="myTranslateService.currentLang() == 'en'"
+              [class.font-bold]="myTranslateService.currentLang() == 'en'">
+              {{'navbar.EN'|translate}}
+          </button>
+          </li>
+
+        @if(!isLogin()){
+
+          <li >
+            <a  class="block py-2 px-3 text-black rounded hover:text-green-700 cursor-pointer md:p-0 m:py-2 m:px-3" routerLinkActive="text-green-700 font-bold"   routerLink="register"    >{{"navbar.Register"|translate}}</a>
+          </li>
+          <li >
+            <a  class="block py-2 px-3 text-black rounded hover:text-green-700 cursor-pointer md:p-0 m:py-2 m:px-3" routerLinkActive="text-green-700 font-bold"   routerLink="login"    >{{"navbar.Login"|translate}}</a>
+          </li>
+        }
+        @else {
+
+<button type="button" class="relative text-white bg-green-700 box-border border border-transparent hover:bg-green-900  focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm p-3 focus:outline-none">
+<i class="fas fa-cart-shopping"></i>
+  <span class="sr-only">Notifications</span>
+  <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-danger border-2 border-buffer rounded-full -top-2 -end-2">{{cartItems()}}</div>
+</button>
+
+          <li (click)="authService.logOut()">
+            <a  class="block py-2 px-3 text-black rounded hover:text-green-700 cursor-pointer md:p-0 m:py-2 m:px-3"  >{{"navbar.Logout"|translate}}</a>
+          </li>
+
+        }
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,97 @@
+
+<section class="w-3/4 mx-auto" >
+  <h1 class="text-green-700 text-xl font-medium my-3">Register Now: </h1>
+
+  @if (errorMsg()) {
+      <div class="p-1 text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        <p>{{errorMsg()}}</p>
+
+      </div>}
+  <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()" class="mt-4" >
+    <div class="relative z-0 w-full mb-5 group">
+      <input  formControlName="name" type="text" name="floating_name" id="floating_name" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-green-700 peer" placeholder=" " required />
+      @if(registerForm.get('name')?.errors &&  registerForm.get('name')?.touched){
+      <div class="text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        @if (registerForm.get('name')?.errors?.["required"]){
+          <p>name is required!</p>
+        }
+        @else if(registerForm.get('name')?.errors?.["minlength"]){
+          <p>minimum requiredLength: 3</p>
+        }
+        @else if (registerForm.get('name')?.errors?.["maxlength"]){
+          <p>maximum requiredLength: 20</p>
+        }
+      </div>
+      }
+      <label for="floating_name" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-green-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">First Name</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input formControlName="email" type="email" name="floating-email" id="floating-email" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-green-700 peer" placeholder=" " required />
+      @if(registerForm.get('email')?.errors &&  registerForm.get('email')?.touched){
+      <div class="text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        @if (registerForm.get('email')?.errors?.["required"]){
+          <p>email is required!</p>
+        }
+        @else if(registerForm.get('email')?.errors?.["email"]  ){
+          <p>it has to be email structure</p>
+        }
+
+      </div>
+      }
+        <label for="floating-email" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-green-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input formControlName="password" type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-green-700 peer" placeholder=" " required />
+        @if(registerForm.get('password')?.errors &&  registerForm.get('password')?.touched){
+      <div class="text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        @if (registerForm.get('password')?.errors?.["required"]){
+          <p>password is required!</p>
+        }
+        @else if(registerForm.get('password')?.errors?.["pattern"]){
+          <p>It has to start with a capital letter folowed by @ and then at least 4 small char or numbers </p>
+        }
+      </div>
+      }
+        <label for="floating_password" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-green-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Password</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input formControlName="rePassword" type="password" name="floating_rePassword" id="floating_rePassword" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-green-700 peer" placeholder=" " required />
+        @if(registerForm.get('rePassword')?.errors &&  registerForm.get('rePassword')?.touched){
+      <div class="text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        @if (registerForm.get('rePassword')?.errors?.["required"]){
+          <p>rePassword is required!</p>
+        }
+        @else if(registerForm.get('rePassword')?.errors?.["mismatch"]){
+          <p>passwords are not identical</p>
+        }
+
+      </div>
+      }
+        <label for="floating_rePassword" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-green-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">rePassword</label>
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <input formControlName="phone" type="phone" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-green-700 peer" placeholder=" " required />
+        @if(registerForm.get('phone')?.errors &&  registerForm.get('phone')?.touched){
+      <div class="text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        @if (registerForm.get('phone')?.errors?.["required"]){
+          <p>phone is required!</p>
+        }
+        @else if(registerForm.get('phone')?.errors?.["pattern"]){
+          <p>It has to stat with 01 followed with 0 or 1 or 2 or 4 foloowed by 8 digits</p>
+        }
+
+      </div>
+      }
+        <label for="floating_phone" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-green-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Phone</label>
+    </div>
+
+    <button [disabled]="registerForm.invalid" type="submit" [class.btn-main]="registerForm.valid" [class.btn-disabled]="registerForm.invalid" class="mb-5 block ms-auto">
+      @if(isLoading){
+        <span> <i class="fa-solid fa-spinner fa-spin"></i> </span>
+      }@else{
+        <span>Register</span>
+      }
+      </button>
+  </form>
+
+</section>

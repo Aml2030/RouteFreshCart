@@ -1,0 +1,42 @@
+
+
+<section class="w-3/4 mx-auto mt-12 mb-6 p-6 bg-neutral-primary-soft border border-default rounded-base shadow-xs">
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <h1 class="text-xl font-semibold text-heading">Shop Cart:</h1>
+        <p class="text-base font-medium text-heading text-green-700">Total Cart Price: {{cartData().totalCartPrice}} EGP</p>
+      </div>
+      <button (click)="clearCart()" class="font-medium bg-green-700 text-white rounded px-3 py-1 cursor-pointer ">Clear all</button>
+    </div>
+
+   <div class="flow-root">
+        <ul role="list" class="divide-y divide-default">
+          @for (item of cartData().products; track $index) {
+            <li class="py-4 sm:py-4">
+                <div class="flex items-center gap-2">
+                    <div class="shrink-0">
+                        <img class="w-60 h-60 object-contain" [src]="item.product.imageCover" alt="Neil image">
+                    </div>
+                    <div class="flex-1 min-w-0 ms-2">
+                        <h2 class="font-medium text-heading truncate">
+                           {{item.product.title}}
+                        </h2>
+                        <p class="text-green-700 my-1 font-medium text-heading truncate">
+                            price: {{item.price}} EGP
+                        </p>
+                        <button (click)="removeSpecificProductFromCart(item.product._id)" class="cursor-pointer"><i class="fas fa-trash text-green-700"></i>Remove</button>
+                    </div>
+                    <div class="inline-flex items-center font-medium text-heading">
+                        <button  (click)="updateProductCartCount(item.product._id , item.count=item.count+1)" class="bg-green-700 text-white cursor-pointer px-2 py-1 rounded">+</button>
+                        <span class="px-3">{{item.count}}</span>
+                        <button (click)="updateProductCartCount(item.product._id , item.count=item.count-1)" class="bg-green-700 text-white cursor-pointer px-2 py-1 rounded">-</button>
+                    </div>
+                </div>
+            </li>
+          }
+        </ul>
+
+          <button [routerLink]="['/shippingaddress',cartData()._id]" class="btn-main block ms-auto cursor-pointer">order</button>
+ 
+   </div>
+</section>
