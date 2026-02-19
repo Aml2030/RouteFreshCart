@@ -82,6 +82,9 @@
     "city": "City:",
     "cash_btn": "Cash",
     "online_btn": "Online"
+  },
+    "details":{
+    "add" : "Add to Cart"
   }
 
 }

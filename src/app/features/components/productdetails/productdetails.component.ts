@@ -6,9 +6,11 @@ import { CurrencyPipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart/cart.service';
 
+import { TranslatePipe } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-productdetails',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe , TranslatePipe],
 templateUrl: './productdetails.component.html',
   styleUrl: './productdetails.component.scss',
 })

@@ -9,7 +9,7 @@
           <span>{{ product().price | currency:'EGP':'symbol-narrow' }}</span>
           <span><i class="fas fa-star text-yellow-300"></i>  {{product().ratingsAverage}}</span>
         </div>
-        <button (click)="addProductToCart(product()._id)" class="rounded text-white w-full bg-green-700 py-1 cursor-pointer hover:font-bold"> + Add to Cart</button>
+        <button (click)="addProductToCart(product()._id)" class="rounded text-white w-full bg-green-700 py-1 cursor-pointer hover:font-bold">  {{"details.add"|translate}} + </button>
     </div>
   </section>
 
