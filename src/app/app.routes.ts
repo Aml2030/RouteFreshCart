@@ -13,6 +13,7 @@ import { ProductdetailsComponent } from './features/components/productdetails/pr
 import { ShippingAddressComponent } from './features/components/shipping-address/shipping-address.component';
 import { AllordersComponent } from './features/components/allorders/allorders.component';
 
+
 export const routes: Routes = [
 {path:'home', component:HomeComponent , title:'home'},
 {path:"cart" ,canActivate:[authGuard], component:CartComponent , title:'cart'},
