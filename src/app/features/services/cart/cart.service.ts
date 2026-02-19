@@ -13,12 +13,15 @@ export class CartService {
   checkPlateFormService:CheckPlateFormService =inject(CheckPlateFormService);
 
   NoOfCartItems:BehaviorSubject<number>= new BehaviorSubject<number>(0);
+
   constructor(){
     if(this.checkPlateFormService.checkIsPlateFormBrowser()){
 
       this.getLoggedUserCart().subscribe({
         next: res =>{
           this.NoOfCartItems.next(res.numOfCartItems);
+
+
         }
       })
     }

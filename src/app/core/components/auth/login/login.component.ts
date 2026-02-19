@@ -6,10 +6,12 @@ import { ForgetpasswordComponent } from '../forgetpassword/forgetpassword.compon
 import { TranslatePipe } from '@ngx-translate/core';
 import { MyTranslateService } from '../../../services/myTranslate/my-translate.service';
 
+
 @Component({
   selector: 'app-login',
   imports: [ReactiveFormsModule,RouterLink , TranslatePipe],
-  templateUrl: './login.component.html',
+
+templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
@@ -27,7 +29,6 @@ export class LoginComponent {
   isLoading:WritableSignal<boolean>=signal<boolean>(false);
 
   router:Router=inject(Router);
-
   submitlogInForm(){
     if(this.logInForm.valid){
       this.isLoading.set(true);
@@ -47,6 +48,9 @@ export class LoginComponent {
       });
     }
     console.log(this.logInForm );
+
   }
+
+
 
 }

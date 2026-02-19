@@ -16,10 +16,11 @@ export class ProductcardComponent {
   product=input<Product>({} as Product)
 
   cartService:CartService=inject(CartService);
+
 toastr = inject(ToastrService);
   addProductToCart(productId:string){
     this.cartService.addProductToCart(productId).subscribe((res)=>{
-      console.log(res.data)
+      console.log(res.data) //in it the cart _id
       // alert(res.message)
       this.toastr.success(res.message,
         "",

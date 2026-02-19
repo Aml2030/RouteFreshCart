@@ -16,11 +16,12 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class CartComponent implements OnInit {
 
-  cartData:WritableSignal<CartData>=signal<CartData>({} as CartData);
+  cartData:WritableSignal<CartData>=signal<CartData>({} as CartData); // in it the cart _id
   cartService:CartService=inject(CartService);
 
   ngOnInit(): void {
     this.getLoggedUserCart();
+
   }
 
 
@@ -34,6 +35,7 @@ export class CartComponent implements OnInit {
      this.cartService.updateProductCartCount(productId,count.toString()).subscribe({
       next : res=>{
         this.cartData.set(res.data);
+        
 
         this.cartService.NoOfCartItems.next(res.numOfCartItems);
       }

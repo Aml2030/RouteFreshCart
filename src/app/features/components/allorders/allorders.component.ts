@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './allorders.component.scss',
 })
 export class AllordersComponent {
+  
 
 }

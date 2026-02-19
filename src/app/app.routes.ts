@@ -12,6 +12,7 @@ import { ForgetpasswordComponent } from './core/components/auth/forgetpassword/f
 import { ProductdetailsComponent } from './features/components/productdetails/productdetails.component';
 import { ShippingAddressComponent } from './features/components/shipping-address/shipping-address.component';
 import { AllordersComponent } from './features/components/allorders/allorders.component';
+import { SpecificCategoryComponent } from './shared/components/specificCategory/specific-category/specific-category.component';
 
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
 {path:"product" , component:ProductComponent , title:'product'},
 {path:"productdetails/:id" , component:ProductdetailsComponent , title:'productdetails'},
 {path:"categories" , component:CategoriesComponent , title:'categories'},
+{path:"specificcategory/:id" , component:SpecificCategoryComponent , title:'specificcategory'},
 {path:"brands" , component:BrandsComponent , title:'brands'},
 {path:"login" , component:LoginComponent , title:'login'},
 {path:"forgetpassword" , component:ForgetpasswordComponent , title:'forgetpassword'},

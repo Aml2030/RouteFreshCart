@@ -3,11 +3,13 @@ import { Component, inject, OnInit, signal, WritableSignal   } from '@angular/co
 import { Category } from '../../../shared/models/Iproducts';
 import { CategoryService } from '../../services/category/category.service';
 import { CategorycardComponent } from '../../../shared/components/categorycard/categorycard/categorycard.component';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-categories',
-  imports: [CategorycardComponent],
-  templateUrl: './categories.component.html',
+  imports: [CategorycardComponent ,RouterLink],
+templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',
 })
 export class CategoriesComponent implements OnInit{
@@ -26,5 +28,7 @@ getAllCategories(){
     }
   })
 }
+
+
 }
 

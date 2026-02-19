@@ -14,4 +14,7 @@ private httpClient:HttpClient=inject(HttpClient)
   getAllCategories():Observable<any>{
     return this.httpClient.get(`${environment.baseUrl}/categories`)
   }
+  getSpecificCategory(category_id:string):Observable<any>{
+    return this.httpClient.get(`${environment.baseUrl}/categories/${category_id}`)
+  }
 }

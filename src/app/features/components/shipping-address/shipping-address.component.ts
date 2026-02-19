@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, ɵInternalFormsSharedModule } from '@angular/forms';
 import { OrderService } from '../../services/order/order.service';
 import { ActivatedRoute, Router   } from '@angular/router';
@@ -27,11 +27,14 @@ export class ShippingAddressComponent {
   router:Router=inject(Router);
 
   cartService:CartService=inject(CartService);
+  cartID:WritableSignal<string>=signal<string>("");
 
   submitShippingAddressFormCash(){
     if(this.shippingAddressForm.valid){
       this.activatedRoute.paramMap.subscribe({
         next : data=>{
+          console.log(data.get('id'))
+          this.cartID.set(data.get('id')!);
           this.orderService.createCashOrder(data.get('id')!,this.shippingAddressForm.value).subscribe({
             next: res =>{
               this.router.navigate(['allorders'])
@@ -48,6 +51,8 @@ export class ShippingAddressComponent {
     if(this.shippingAddressForm.valid){
       this.activatedRoute.paramMap.subscribe({
         next : data=>{
+          console.log(data.get('id'))
+          this.cartID.set(data.get('id')!);
           this.orderService.checkOut(data.get('id')!,this.shippingAddressForm.value).subscribe({
             next: res =>{
               window.open(res.session.url,'_self')
