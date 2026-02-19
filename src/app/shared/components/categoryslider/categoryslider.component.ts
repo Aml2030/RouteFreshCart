@@ -4,9 +4,12 @@ import { Category } from '../../models/Iproducts';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+
+import { TranslatePipe } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-categoryslider',
-  imports: [CarouselModule],
+  imports: [CarouselModule, TranslatePipe],
 templateUrl: './categoryslider.component.html',
   styleUrl: './categoryslider.component.scss',
 })
@@ -38,6 +41,7 @@ getAllCategories(){
           items: 7
         }
       },
-      nav: true
+      nav: true,
+      rtl:true
     }
 }

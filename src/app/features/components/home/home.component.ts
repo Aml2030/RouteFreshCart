@@ -7,10 +7,12 @@ import { ProductcardComponent } from "../../../shared/components/productcard/pro
 import { SearchproductPipe } from '../../../shared/pipes/searchproduct/searchproduct-pipe';
 import { FormsModule } from '@angular/forms';
 
+import { TranslatePipe } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-home',
-  imports: [HomesliderComponent, CategorysliderComponent, ProductcardComponent , SearchproductPipe,FormsModule],
+  imports: [HomesliderComponent, CategorysliderComponent, ProductcardComponent , SearchproductPipe,FormsModule, TranslatePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -31,5 +33,5 @@ export class HomeComponent implements OnInit{
       }
     })
   }
-  
+
 }

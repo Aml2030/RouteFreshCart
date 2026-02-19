@@ -5,10 +5,83 @@
     "Product": "Products",
     "Categories": "Categories",
     "Brands": "Brands",
-    "Login": "Sign In",
+    "Login": "Login",
     "Register": "Register",
     "Logout": "Logout",
     "EN": "EN",
-    "AR":"AR"
+    "AR": "AR"
+  },
+  "login": {
+    "labels": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "Login 🛒": "Login 🛒: ",
+    "forgot_password": "Forgot Password?",
+    "submit_button": "Login",
+    "validation": {
+      "email_required": "Email is required!",
+      "email_invalid": "Must be a valid email format",
+      "password_required": "Password is required!",
+      "password_pattern": "Must start with a capital letter followed by @ and at least 4 lowercase letters or numbers"
+    }
+  },
+  "footer": {
+    "get_app": "Get The FreshCart App",
+    "send": "We will send you a link, open it on your phone to download the app",
+    "share": "Share App Link",
+    "payment": "Payment partners",
+    "deliver": "Get Deliveries with FreshCart"
+  },
+  "home": {
+    "search": "Search ..."
+  },
+  "productcard": {
+    "button": "Add to cart"
+  },
+  "category": {
+    "slider": "Show Popular Categories:"
+  },
+  "register": {
+    "title": "Register Now:",
+    "labels": {
+      "first_name": "First Name",
+      "email": "Email",
+      "password": "Password",
+      "rePassword": "Confirm Password",
+      "phone": "Phone"
+    },
+    "submit": "Register",
+    "validation": {
+      "name_required": "Name is required!",
+      "name_min": "Minimum length: 3",
+      "name_max": "Maximum length: 20",
+      "email_required": "Email is required!",
+      "email_invalid": "Must be a valid email format",
+      "password_required": "Password is required!",
+      "password_pattern": "Must start with a capital letter followed by @ and at least 4 lowercase letters or numbers",
+      "rePassword_required": "Confirm Password is required!",
+      "mismatch": "Passwords do not match",
+      "phone_required": "Phone number is required!",
+      "phone_pattern": "Must start with 01 followed by (0, 1, 2, or 5) and then 8 digits"
+    }
+  },
+  "cart": {
+    "title": "Shop Cart:",
+    "total_price": "Total Cart Price:",
+    "currency": "EGP",
+    "clear_all": "Clear all",
+    "price_label": "Price:",
+    "remove": "Remove",
+    "order": "Order"
+  },
+  "shipping": {
+    "title": "Shipping Address 📍:",
+    "details": "Details:",
+    "phone": "Phone:",
+    "city": "City:",
+    "cash_btn": "Cash",
+    "online_btn": "Online"
   }
+
 }

@@ -6,10 +6,11 @@ import { CartData, CartResponse } from '../../../shared/models/ICart';
 import { CartService } from '../../services/cart/cart.service';
 import { RouterLink } from "@angular/router";
 
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
-  imports: [RouterLink],
+  imports: [RouterLink , TranslatePipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })

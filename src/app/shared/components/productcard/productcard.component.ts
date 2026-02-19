@@ -4,10 +4,11 @@ import { RouterLink } from "@angular/router";
 import { CartService } from './../../../features/services/cart/cart.service';
 import {  ToastrService } from 'ngx-toastr';
 
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-productcard',
-  imports: [RouterLink],
+  imports: [RouterLink , TranslatePipe],
 templateUrl: './productcard.component.html',
   styleUrl: './productcard.component.scss',
 })

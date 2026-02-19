@@ -3,14 +3,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, ɵInternalFormsSharedModul
 import { OrderService } from '../../services/order/order.service';
 import { ActivatedRoute, Router   } from '@angular/router';
 import { CartService } from '../../services/cart/cart.service';
-
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 
 @Component({
   selector: 'app-shipping-address',
   standalone:true,
-  imports: [ReactiveFormsModule  ],
+  imports: [ReactiveFormsModule ,TranslatePipe  ],
 templateUrl: './shipping-address.component.html',
   styleUrl: './shipping-address.component.scss',
 })

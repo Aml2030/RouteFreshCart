@@ -3,10 +3,10 @@
 <section class="w-3/4 mx-auto mt-12 mb-6 p-6 bg-neutral-primary-soft border border-default rounded-base shadow-xs">
     <div class="flex items-center justify-between mb-4">
       <div>
-        <h1 class="text-xl font-semibold text-heading">Shop Cart:</h1>
-        <p class="text-base font-medium text-heading text-green-700">Total Cart Price: {{cartData().totalCartPrice}} EGP</p>
+        <h1 class="text-xl font-semibold text-heading">{{"cart.title"|translate}}</h1>
+        <p class="text-base font-medium text-heading text-green-700">{{"cart.total_price"|translate}} {{cartData().totalCartPrice}} {{"cart.currency"|translate}} </p>
       </div>
-      <button (click)="clearCart()" class="font-medium bg-green-700 text-white rounded px-3 py-1 cursor-pointer ">Clear all</button>
+      <button (click)="clearCart()" class="font-medium bg-green-700 text-white rounded px-3 py-1 cursor-pointer ">{{"cart.clear_all"|translate}}</button>
     </div>
 
    <div class="flow-root">
@@ -22,9 +22,9 @@
                            {{item.product.title}}
                         </h2>
                         <p class="text-green-700 my-1 font-medium text-heading truncate">
-                            price: {{item.price}} EGP
+                           {{"cart.price_label"|translate}} {{item.price}} {{"cart.currency"|translate}}
                         </p>
-                        <button (click)="removeSpecificProductFromCart(item.product._id)" class="cursor-pointer"><i class="fas fa-trash text-green-700"></i>Remove</button>
+                        <button (click)="removeSpecificProductFromCart(item.product._id)" class="cursor-pointer"><i class="fas fa-trash text-green-700"></i>{{"cart.remove"|translate}}</button>
                     </div>
                     <div class="inline-flex items-center font-medium text-heading">
                         <button  (click)="updateProductCartCount(item.product._id , item.count=item.count+1)" class="bg-green-700 text-white cursor-pointer px-2 py-1 rounded">+</button>
@@ -36,7 +36,7 @@
           }
         </ul>
 
-          <button [routerLink]="['/shippingaddress',cartData()._id]" class="btn-main block ms-auto cursor-pointer">order</button>
- 
+          <button [routerLink]="['/shippingaddress',cartData()._id]" class="btn-main block ms-auto cursor-pointer">{{"cart.order"|translate}}</button>
+
    </div>
 </section>

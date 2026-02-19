@@ -3,10 +3,12 @@ import {FormControl, FormGroup , ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../../sevices/auth/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { ForgetpasswordComponent } from '../forgetpassword/forgetpassword.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MyTranslateService } from '../../../services/myTranslate/my-translate.service';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule,RouterLink , TranslatePipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
