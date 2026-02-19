@@ -1,15 +1,15 @@
-import { HttpInterceptorFn } from '@angular/common/http';
-import { inject } from '@angular/core';
-import {  NgxSpinnerService } from 'ngx-spinner';
-import { finalize } from 'rxjs';
+// import { HttpInterceptorFn } from '@angular/common/http';
+// import { inject } from '@angular/core';
+// import {  NgxSpinnerService } from 'ngx-spinner';
+// import { finalize } from 'rxjs';
 
-export const spinnerInterceptor: HttpInterceptorFn = (req, next) => {
+// export const spinnerInterceptor: HttpInterceptorFn = (req, next) => {
 
-  const ngxSpinnerService:NgxSpinnerService=inject(NgxSpinnerService);
+//   const ngxSpinnerService:NgxSpinnerService=inject(NgxSpinnerService);
 
-  ngxSpinnerService.show();
+//   ngxSpinnerService.show();
 
-  return next(req).pipe(finalize(()=>{
-    ngxSpinnerService.hide();
-  }))
-};
+//   return next(req).pipe(finalize(()=>{
+//     ngxSpinnerService.hide();
+//   }))
+// };

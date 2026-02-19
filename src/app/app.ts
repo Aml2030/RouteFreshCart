@@ -8,7 +8,7 @@ import { ProductComponent } from './features/components/product/product.componen
 import { CategoriesComponent } from './features/components/categories/categories.component';
 import { BrandsComponent } from './features/components/brands/brands.component';
 import { NotfoundComponent } from './features/components/notfound/notfound.component';
-import { spinnerInterceptor } from './core/interceptores/spinner/spinner-interceptor';
+// import { spinnerInterceptor } from './core/interceptores/spinner/spinner-interceptor';
  import { CommonModule } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
@@ -20,15 +20,15 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrl: './app.scss'
 })
 export class App {
-  constructor(private spinner: NgxSpinnerService) {}
+  // constructor(private spinner: NgxSpinnerService) {}
 
-  ngOnInit() {
-    /** spinner starts on init */
-    this.spinner.show();
+  // ngOnInit() {
+  //   /** spinner starts on init */
+  //   this.spinner.show();
 
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 5000);
-  }
+  //   setTimeout(() => {
+  //     /** spinner ends after 5 seconds */
+  //     this.spinner.hide();
+  //   }, 5000);
+  // }
 }
