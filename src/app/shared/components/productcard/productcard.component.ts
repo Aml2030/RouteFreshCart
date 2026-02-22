@@ -1,10 +1,11 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Product } from '../../../shared/models/Iproducts';
 import { RouterLink } from "@angular/router";
 import { CartService } from './../../../features/services/cart/cart.service';
 import {  ToastrService } from 'ngx-toastr';
 
 import { TranslatePipe } from '@ngx-translate/core';
+import { WishlistService } from '../../../features/services/wishlist/wishlist.service';
 
 @Component({
   selector: 'app-productcard',
@@ -14,6 +15,13 @@ templateUrl: './productcard.component.html',
 })
 export class ProductcardComponent {
   product=input<Product>({} as Product)
+  wishlistx=input<boolean>();
+  // Use output instead of input
+  toggle = output<string>();
+
+  handleToggle() {
+    this.toggle.emit(this.product()._id);
+  }
 
   cartService:CartService=inject(CartService);
 
@@ -34,4 +42,8 @@ toastr = inject(ToastrService);
       this.cartService.NoOfCartItems.next(res.numOfCartItems)
     })
   }
+
+
+
+
 }
