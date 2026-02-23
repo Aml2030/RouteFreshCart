@@ -87,7 +87,21 @@
   "details":{
     "add" : "أضف إلى السلة"
   },
-  "backtocategories":"العودة إلى الفئات"
+  "backtocategories":"العودة إلى الفئات",
+  "allOrders": {
+    "title": "سجل طلباتك",
+    "orderNo": "طلب رقم:",
+    "totalAmount": "إجمالي المبلغ:",
+    "orderDate": "تاريخ الطلب:",
+    "paid": "تم الدفع",
+    "unpaid": "قيد الدفع",
+    "quantity": "الكمية:",
+    "currency": "ج.م",
+    "empty": {
+      "message": "لا يوجد لديك طلبات سابقة حتى الآن.",
+      "action": "ابدأ التسوق الآن"
+    }
+}
 
 
 

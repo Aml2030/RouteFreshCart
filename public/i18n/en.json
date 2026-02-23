@@ -86,6 +86,22 @@
     "details":{
     "add" : "Add to Cart"
   },
-  "backtocategories":"Back to Categories"
+  "backtocategories":"Back to Categories",
+
+  "allOrders": {
+    "title": "Your Order History",
+    "orderNo": "Order No:",
+    "totalAmount": "Total Amount:",
+    "orderDate": "Order Date:",
+    "paid": "Paid",
+    "unpaid": "Pending Payment",
+    "quantity": "Qty:",
+    "currency": "EGP",
+    "empty": {
+      "message": "You don't have any previous orders yet.",
+      "action": "Start Shopping Now"
+    }
+  }
+
 
 }

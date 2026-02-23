@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environment/environment';
 import {shippingAddressData} from '../../../../app/shared/models/Ishipping'
+import { UserOrders } from '../../../shared/models/IUserOrders';
 @Injectable({
   providedIn: 'root',
 })
@@ -26,6 +27,17 @@ export class OrderService {
       {
         shippingAddress: data
       },
+      {
+        headers:{
+          token: localStorage.getItem("userToken")|| ''
+        }
+      }
+    )
+  }
+
+
+  getUserOrders(userId:string):Observable<UserOrders[]>{
+    return this.httpClient.get<UserOrders[]>(`${environment.baseUrl}/orders/user/${userId}`,
       {
         headers:{
           token: localStorage.getItem("userToken")|| ''

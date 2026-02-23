@@ -37,12 +37,13 @@ export class AuthService {
     return this.httpClient.put(`${environment.baseUrl}/auth/resetPassword`,data)
   }
 
-  userData:BehaviorSubject<null|JwtPayload>=new BehaviorSubject<null|JwtPayload>(null); //it starts after refreshing with null! id browser
+  userData:BehaviorSubject<null|MyUserPayload>=new BehaviorSubject<null|MyUserPayload>(null); //it starts after refreshing with null! id browser
 
   decodeUserData(){
     const token= localStorage.getItem("userToken")!;
-    const decoded= jwtDecode(token);
+    const decoded= jwtDecode<MyUserPayload>(token);
     this.userData.next(decoded);
+    console.log(this.userData.getValue(),"userData")
   }
 
   router:Router=inject(Router);
@@ -53,5 +54,10 @@ export class AuthService {
   }
 
 }
+  export interface MyUserPayload extends JwtPayload {
+    id: string;
+    name: string;
+    role: string;
+  }
 
 
