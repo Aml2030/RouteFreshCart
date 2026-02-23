@@ -4,7 +4,7 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 export const serverRoutes: ServerRoute[] = [
   {
     path: '**', // This covers /home, /brands, /login, and everything else
-    renderMode: RenderMode.Server,
+    renderMode: RenderMode.Client,
   }
 ];
 
